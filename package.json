@@ -1,0 +1,28 @@
+{
+  "name": "react-native-floating-label-text-input",
+  "version": "0.0.1",
+  "description": "iOS text input with animated floating label",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:eyaleizenberg/react-native-floating-label-text-input.git"
+  },
+  "keywords": [
+    "react-native",
+    "react-component",
+    "ios",
+    "animated",
+    "floating",
+    "text input",
+    "text field"
+  ],
+  "author": "Eyal Eizenberg <eyal.eizenberg@samanage.com> (https://github.com/eyaleizenberg)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eyaleizenberg/react-native-floating-label-text-input/issues"
+  },
+  "homepage": "https://github.com/eyaleizenberg/react-native-floating-label-text-input"
+}
