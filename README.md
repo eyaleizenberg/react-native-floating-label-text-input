@@ -1,12 +1,12 @@
-## React Native Floating Label Text
+## React Native Floating Label Text Input
 
 ### What is this?
-This component will render an iOS styles text field with floating label animation. When there is no value, the placeholder will be centered. Once there is a value, the value will slide down and the label will fade in and slide up.
+This component will render an iOS styled text field with floating label animation. When there is no value, the placeholder will be centered. Once there is a value, the value will slide down and the label will fade in and slide up.
 
-Credits for the concept to Matt D. Smith (@mds), and his [original design](http://dribbble.com/shots/1254439--GIF-Mobile-Form-Interaction?list=users).
+Credits for the concept to Matt D. Smith ([@mds](http://www.twitter.com/mds)), and his [original design](http://dribbble.com/shots/1254439--GIF-Mobile-Form-Interaction?list=users).
 
 <p align="center">
-    <img src ="http://i.imgur.com/Iq6YZGj.gif" />
+    <img src ="http://i.imgur.com/5dddNix.gif" />
 </p>
 
 ### Installation
