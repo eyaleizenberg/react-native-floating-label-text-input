@@ -117,9 +117,12 @@ var FloatLabelTextField = React.createClass({
   },
 
   setText: function(value) {
-    return this.setState({
+    this.setState({
       text: value
     });
+    try {
+      return this.props.onChangeText(value);
+    } catch (_error) {}
   },
 
   withMargin: function() {
