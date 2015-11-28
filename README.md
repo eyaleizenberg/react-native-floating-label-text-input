@@ -38,6 +38,7 @@ var SomeComponent = React.createClass({
 - `value` (String) - Value of the text input.
 - `onFocus` (Function) - Function to be called on focus.
 - `onBlur` (Function) - Function to be called on blur.
+- `noBorder` (Boolean) - Hide the border bottom of the field
 
 ### Questions/Bugs/Ideas?
 Feel free to open an issue on github, send suggestions, fork this repository or contact me at eyal.eizenberg@samanage.com
