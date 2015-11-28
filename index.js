@@ -87,6 +87,7 @@ var FloatLabelTextField = React.createClass({
                 onBlur={this.unsetFocus}
                 onChangeText={this.setText}
                 secureTextEntry={this.props.secureTextEntry}
+                keyboardType={this.props.keyboardType}
               />
             </TextFieldHolder>
           </View>
