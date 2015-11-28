@@ -62,6 +62,13 @@ var FloatLabelTextField = React.createClass({
       text: this.props.value
     };
   },
+
+  withBorder: function() {
+    if (!this.props.noBorder) {
+      return styles.withBorder;
+    };
+  },
+
   render: function() {
     return(
       <View style={styles.container}>
@@ -160,9 +167,11 @@ var styles = StyleSheet.create({
   fieldContainer: {
     flex: 1,
     justifyContent: 'center',
+    position: 'relative'
+  },
+  withBorder: {
     borderBottomWidth: 1 / 2,
     borderColor: '#C8C7CC',
-    position: 'relative'
   },
   valueText: {
     height: 20,

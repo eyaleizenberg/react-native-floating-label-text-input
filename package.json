@@ -1,6 +1,6 @@
 {
   "name": "react-native-floating-label-text-input",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "iOS text input with animated floating label",
   "main": "index.js",
   "scripts": {
