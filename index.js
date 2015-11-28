@@ -74,7 +74,7 @@ var FloatLabelTextField = React.createClass({
       <View style={styles.container}>
         <View style={styles.viewContainer}>
           <View style={styles.paddingView}></View>
-          <View style={[styles.fieldContainer, this.this.withBorder()]}>
+          <View style={[styles.fieldContainer, this.withBorder()]}>
             <FloatingLabel visible={this.state.text}>
               <Text style={[styles.fieldLabel, this.labelStyle()]}>{this.placeHolderValue()}</Text>
             </FloatingLabel>
