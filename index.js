@@ -130,7 +130,7 @@ var FloatLabelTextField = React.createClass({
       text: value
     });
     try {
-      return this.props.onChangeText(value);
+      return this.props.onChangeTextValue(value);
     } catch (_error) {}
   },
 
