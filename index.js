@@ -5,9 +5,17 @@ var { StyleSheet, Text, View, TextInput, Animated } = React;
 
 var FloatingLabel = React.createClass({
   getInitialState: function() {
+    var initialPadding = 9;
+    var initialOpacity = 0;
+
+    if (this.props.visible) {
+      initialPadding = 5
+      initialOpacity = 1
+    }
+
     return {
-      paddingAnim: new Animated.Value(9),
-      opacityAnim: new Animated.Value(0)
+      paddingAnim: new Animated.Value(initialPadding),
+      opacityAnim: new Animated.Value(initialOpacity)
     };
   },
 
