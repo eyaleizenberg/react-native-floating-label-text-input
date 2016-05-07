@@ -84,11 +84,11 @@ var FloatLabelTextField = React.createClass({
           <View style={styles.paddingView}></View>
           <View style={[styles.fieldContainer, this.withBorder()]}>
             <FloatingLabel visible={this.state.text}>
-              <Text style={[styles.fieldLabel, this.labelStyle()]}>{this.placeHolderValue()}</Text>
+              <Text style={[styles.fieldLabel, this.labelStyle()]}>{this.placeholderValue()}</Text>
             </FloatingLabel>
             <TextFieldHolder withValue={this.state.text}>
               <TextInput
-                placeholder={this.props.placeHolder}
+                placeholder={this.props.placeholder}
                 style={[styles.valueText]}
                 value={this.state.text}
                 maxLength={this.props.maxLength}
@@ -131,9 +131,9 @@ var FloatLabelTextField = React.createClass({
     }
   },
 
-  placeHolderValue: function() {
+  placeholderValue: function() {
     if (this.state.text) {
-      return this.props.placeHolder;
+      return this.props.placeholder;
     }
   },
 
