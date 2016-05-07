@@ -40,6 +40,8 @@ var SomeComponent = React.createClass({
 - `onBlur` (Function) - Function to be called on blur.
 - `onChangeTextValue` (Function) - Function to be called when text is modified.
 - `noBorder` (Boolean) - Hide the border bottom of the field.
+- `maxLength` (Number) - Limits the maximum number of characters that can be entered. Use this instead of implementing the logic in JS to avoid flicker.
+- `selectionColor` (String) - The highlight (and cursor on ios) color of the text input.
 
 ### Questions/Bugs/Ideas?
 Feel free to open an issue on github, send suggestions, fork this repository or contact me at eyal.eizenberg@samanage.com
