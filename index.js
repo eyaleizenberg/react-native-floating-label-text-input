@@ -90,6 +90,7 @@ var FloatLabelTextField = React.createClass({
               <TextInput
                 placeholder={this.props.placeHolder}
                 style={[styles.valueText]}
+                defaultValue={this.props.defaultValue}
                 value={this.state.text}
                 onFocus={this.setFocus}
                 onBlur={this.unsetFocus}
