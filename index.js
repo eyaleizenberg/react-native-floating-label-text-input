@@ -71,6 +71,12 @@ var FloatLabelTextField = React.createClass({
     };
   },
 
+  componentWillReceiveProps: function(newProps) {
+    if (newProps.hasOwnProperty('value') && newProps.value !== this.state.text) {
+      this.setState({ text: newProps.value })
+    }
+  },
+
   withBorder: function() {
     if (!this.props.noBorder) {
       return styles.withBorder;
