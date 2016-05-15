@@ -22,7 +22,7 @@ var SomeComponent = React.createClass({
     return (
       <View>
         <FloatLabelTextInput
-          placeHolder={"name of field"}
+          placeholder={"name of field"}
           value={"value of field"}
           onFocus={@myFocusFunction}
           onBlur={@onBlurFunction}
@@ -34,12 +34,16 @@ var SomeComponent = React.createClass({
 ```
 
 ### Component props
-- `placeHolder` (String) - String that will be used as the placeholder if there is no value. It will also be the string used for the label when there is a value.
-- `value` (String) - Value of the text input.
-- `onFocus` (Function) - Function to be called on focus.
-- `onBlur` (Function) - Function to be called on blur.
-- `onChangeTextValue` (Function) - Function to be called when text is modified.
-- `noBorder` (Boolean) - Hide the border bottom of the field.
+- placeholder (String) - String that will be used as the placeholder if there is no value. It will also be the string used for the label when there is a value.
+- secureTextEntry (Bool) - If true, the text input obscures the text entered so that sensitive text like passwords stay secure. The default value is false.
+- keyboardType (Enum) - enum('default', 'email-address', 'numeric', 'phone-pad', 'ascii-capable', 'numbers-and-punctuation', 'url', 'number-pad', 'name-phone-pad', 'decimal-pad', 'twitter', 'web-search').
+- value (String) - Value of the text input.
+- onFocus (Function) - Function to be called on focus.
+- onBlur (Function) - Function to be called on blur.
+- onChangeTextValue (Function) - Function to be called when text is modified.
+- noBorder (Boolean) - Hide the border bottom of the field.
+- maxLength (Number) - Limits the maximum number of characters that can be entered. Use this instead of implementing the logic in JS to avoid flicker.
+- selectionColor (String) - The highlight (and cursor on ios) color of the text input.
 
 ### Questions/Bugs/Ideas?
 Feel free to open an issue on github, send suggestions, fork this repository or contact me at eyal.eizenberg@samanage.com
