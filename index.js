@@ -1,10 +1,17 @@
 'use strict';
 
-var React = require('react-native');
-var { StyleSheet, Text, View, TextInput, Animated } = React;
+import React, {Component} from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Animated
+} from 'react-native'
 
-var FloatingLabel = React.createClass({
-  getInitialState: function() {
+class FloatingLabel extends Component {
+  constructor(props) {
+    super(props);
     var initialPadding = 9;
     var initialOpacity = 0;
 
@@ -12,14 +19,13 @@ var FloatingLabel = React.createClass({
       initialPadding = 5
       initialOpacity = 1
     }
-
-    return {
+    this.state = {
       paddingAnim: new Animated.Value(initialPadding),
       opacityAnim: new Animated.Value(initialOpacity)
-    };
-  },
+    }
+  }
 
-  componentWillReceiveProps: function(newProps) {
+  componentWillReceiveProps(newProps) {
     Animated.timing(this.state.paddingAnim, {
       toValue: newProps.visible ? 5 : 9,
       duration: 230
@@ -29,61 +35,63 @@ var FloatingLabel = React.createClass({
       toValue: newProps.visible ? 1 : 0,
       duration: 230
     }).start();
-  },
+  }
 
-  render: function() {
+  render() {
     return(
       <Animated.View style={[styles.floatingLabel, {paddingTop: this.state.paddingAnim, opacity: this.state.opacityAnim}]}>
         {this.props.children}
       </Animated.View>
     );
   }
-});
+}
 
-var TextFieldHolder = React.createClass({
-  getInitialState: function() {
-    return {
+class TextFieldHolder extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       marginAnim: new Animated.Value(this.props.withValue ? 10 : 0)
-    };
-  },
+    }
+  }
 
-  componentWillReceiveProps: function(newProps) {
+  componentWillReceiveProps(newProps) {
     return Animated.timing(this.state.marginAnim, {
       toValue: newProps.withValue ? 10 : 0,
       duration: 230
     }).start();
-  },
+  }
 
-  render: function() {
+  render() {
     return(
       <Animated.View style={{marginTop: this.state.marginAnim}}>
         {this.props.children}
       </Animated.View>
     );
   }
-});
+}
 
-var FloatLabelTextField = React.createClass({
-  getInitialState: function() {
-    return {
+class FloatLabelTextField extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       focussed: false,
       text: this.props.value
     };
-  },
+  }
 
-  componentWillReceiveProps: function(newProps) {
+  componentWillReceiveProps(newProps) {
     if (newProps.hasOwnProperty('value') && newProps.value !== this.state.text) {
       this.setState({ text: newProps.value })
     }
-  },
+  }
 
-  withBorder: function() {
+  withBorder() {
     if (!this.props.noBorder) {
       return styles.withBorder;
     };
-  },
+  }
 
-  render: function() {
+  render() {
     return(
       <View style={styles.container}>
         <View style={styles.viewContainer}>
@@ -93,72 +101,67 @@ var FloatLabelTextField = React.createClass({
               <Text style={[styles.fieldLabel, this.labelStyle()]}>{this.placeholderValue()}</Text>
             </FloatingLabel>
             <TextFieldHolder withValue={this.state.text}>
-              <TextInput
-                placeholder={this.props.placeholder}
+              <TextInput {...this.props}
                 style={[styles.valueText]}
                 defaultValue={this.props.defaultValue}
                 value={this.state.text}
                 maxLength={this.props.maxLength}
-                selectionColor={this.props.selectionColor}
-                onFocus={this.setFocus}
-                onBlur={this.unsetFocus}
-                onChangeText={this.setText}
-                secureTextEntry={this.props.secureTextEntry}
-                keyboardType={this.props.keyboardType}
-                autoCapitalize={this.props.autoCapitalize}
-                autoCorrect={this.props.autoCorrect}
+                onFocus={() => this.setFocus()}
+                onBlur={() => this.unsetFocus()}
+                onChangeText={(value) => this.setText(value)}
               />
             </TextFieldHolder>
           </View>
         </View>
       </View>
     );
-  },
-  setFocus: function() {
+  }
+
+  setFocus() {
     this.setState({
       focussed: true
     });
     try {
       return this.props.onFocus();
     } catch (_error) {}
-  },
+  }
 
-  unsetFocus: function() {
+  unsetFocus() {
     this.setState({
       focussed: false
     });
     try {
       return this.props.onBlur();
     } catch (_error) {}
-  },
+  }
 
-  labelStyle: function() {
+  labelStyle() {
     if (this.state.focussed) {
       return styles.focussed;
     }
-  },
+  }
 
-  placeholderValue: function() {
+  placeholderValue() {
     if (this.state.text) {
       return this.props.placeholder;
     }
-  },
+  }
 
-  setText: function(value) {
+  setText(value) {
     this.setState({
       text: value
     });
     try {
       return this.props.onChangeTextValue(value);
     } catch (_error) {}
-  },
+  }
 
-  withMargin: function() {
+  withMargin() {
     if (this.state.text) {
       return styles.withMargin;
     }
   }
-});
+}
 
 var styles = StyleSheet.create({
   container: {
@@ -206,4 +209,4 @@ var styles = StyleSheet.create({
   }
 });
 
-module.exports = FloatLabelTextField
+module.exports = FloatLabelTextField;
