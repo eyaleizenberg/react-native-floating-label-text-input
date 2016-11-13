@@ -1,5 +1,3 @@
-'use strict';
-
 import React, {Component} from 'react';
 import {
   StyleSheet,
@@ -12,13 +10,15 @@ import {
 class FloatingLabel extends Component {
   constructor(props) {
     super(props);
-    var initialPadding = 9;
-    var initialOpacity = 0;
+
+    let initialPadding = 9;
+    let initialOpacity = 0;
 
     if (this.props.visible) {
-      initialPadding = 5
-      initialOpacity = 1
+      initialPadding = 5;
+      initialOpacity = 1;
     }
+
     this.state = {
       paddingAnim: new Animated.Value(initialPadding),
       opacityAnim: new Animated.Value(initialOpacity)
@@ -74,7 +74,7 @@ class FloatLabelTextField extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      focussed: false,
+      focused: false,
       text: this.props.value
     };
   }
@@ -88,14 +88,14 @@ class FloatLabelTextField extends Component {
   withBorder() {
     if (!this.props.noBorder) {
       return styles.withBorder;
-    };
+    }
   }
 
   render() {
     return(
       <View style={styles.container}>
         <View style={styles.viewContainer}>
-          <View style={styles.paddingView}></View>
+          <View style={styles.paddingView}/>
           <View style={[styles.fieldContainer, this.withBorder()]}>
             <FloatingLabel visible={this.state.text}>
               <Text style={[styles.fieldLabel, this.labelStyle()]}>{this.placeholderValue()}</Text>
@@ -119,7 +119,7 @@ class FloatLabelTextField extends Component {
 
   setFocus() {
     this.setState({
-      focussed: true
+      focused: true
     });
     try {
       return this.props.onFocus();
@@ -128,7 +128,7 @@ class FloatLabelTextField extends Component {
 
   unsetFocus() {
     this.setState({
-      focussed: false
+      focused: false
     });
     try {
       return this.props.onBlur();
@@ -136,8 +136,8 @@ class FloatLabelTextField extends Component {
   }
 
   labelStyle() {
-    if (this.state.focussed) {
-      return styles.focussed;
+    if (this.state.focused) {
+      return styles.focused;
     }
   }
 
@@ -155,15 +155,9 @@ class FloatLabelTextField extends Component {
       return this.props.onChangeTextValue(value);
     } catch (_error) {}
   }
-
-  withMargin() {
-    if (this.state.text) {
-      return styles.withMargin;
-    }
-  }
 }
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     height: 45,
@@ -201,12 +195,9 @@ var styles = StyleSheet.create({
     fontSize: 16,
     color: '#111111'
   },
-  withMargin: {
-    marginTop: 10
-  },
-  focussed: {
+  focused: {
     color: "#1482fe"
   }
 });
 
-module.exports = FloatLabelTextField;
+export default FloatLabelTextField;
