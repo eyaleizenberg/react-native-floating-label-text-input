@@ -15,10 +15,10 @@ Credits for the concept to Matt D. Smith ([@mds](http://www.twitter.com/mds)), a
 ### Usage example
 
 ```javascript
-var FloatLabelTextInput = require('react-native-floating-label-text-input');
+import FloatLabelTextInput from 'react-native-floating-label-text-input';
 
-var SomeComponent = React.createClass({
-  render: function() {
+class SomeComponent extends Component {
+  render () {
     return (
       <View>
         <FloatLabelTextInput
@@ -30,7 +30,7 @@ var SomeComponent = React.createClass({
       </View>
     );
   }
-});
+}
 ```
 
 ### Component props
