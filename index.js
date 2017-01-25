@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
@@ -38,8 +38,8 @@ class FloatingLabel extends Component {
   }
 
   render() {
-    return(
-      <Animated.View style={[styles.floatingLabel, {paddingTop: this.state.paddingAnim, opacity: this.state.opacityAnim}]}>
+    return (
+      <Animated.View style={[styles.floatingLabel, { paddingTop: this.state.paddingAnim, opacity: this.state.opacityAnim }]}>
         {this.props.children}
       </Animated.View>
     );
@@ -62,8 +62,8 @@ class TextFieldHolder extends Component {
   }
 
   render() {
-    return(
-      <Animated.View style={{marginTop: this.state.marginAnim}}>
+    return (
+      <Animated.View style={{ marginTop: this.state.marginAnim }}>
         {this.props.children}
       </Animated.View>
     );
@@ -92,16 +92,17 @@ class FloatLabelTextField extends Component {
   }
 
   render() {
-    return(
+    return (
       <View style={styles.container}>
         <View style={styles.viewContainer}>
-          <View style={styles.paddingView}/>
+          <View style={styles.paddingView} />
           <View style={[styles.fieldContainer, this.withBorder()]}>
             <FloatingLabel visible={this.state.text}>
               <Text style={[styles.fieldLabel, this.labelStyle()]}>{this.placeholderValue()}</Text>
             </FloatingLabel>
             <TextFieldHolder withValue={this.state.text}>
               <TextInput {...this.props}
+                ref='input'
                 style={[styles.valueText]}
                 defaultValue={this.props.defaultValue}
                 value={this.state.text}
@@ -109,12 +110,32 @@ class FloatLabelTextField extends Component {
                 onFocus={() => this.setFocus()}
                 onBlur={() => this.unsetFocus()}
                 onChangeText={(value) => this.setText(value)}
-              />
+                />
             </TextFieldHolder>
           </View>
         </View>
       </View>
     );
+  }
+
+  inputRef() {
+    return this.refs.input;
+  }
+
+  focus() {
+    this.inputRef().focus();
+  }
+
+  blur() {
+    this.inputRef().blur();
+  }
+
+  isFocused() {
+    return this.inputRef().isFocused();
+  }
+
+  clear() {
+    this.inputRef().clear();
   }
 
   setFocus() {
@@ -123,7 +144,7 @@ class FloatLabelTextField extends Component {
     });
     try {
       return this.props.onFocus();
-    } catch (_error) {}
+    } catch (_error) { }
   }
 
   unsetFocus() {
@@ -132,7 +153,7 @@ class FloatLabelTextField extends Component {
     });
     try {
       return this.props.onBlur();
-    } catch (_error) {}
+    } catch (_error) { }
   }
 
   labelStyle() {
@@ -153,7 +174,7 @@ class FloatLabelTextField extends Component {
     });
     try {
       return this.props.onChangeTextValue(value);
-    } catch (_error) {}
+    } catch (_error) { }
   }
 }
 
