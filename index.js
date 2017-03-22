@@ -4,7 +4,8 @@ import {
   Text,
   View,
   TextInput,
-  Animated
+  Animated,
+  Platform
 } from 'react-native'
 
 class FloatingLabel extends Component {
@@ -103,6 +104,7 @@ class FloatLabelTextField extends Component {
             <TextFieldHolder withValue={this.state.text}>
               <TextInput {...this.props}
                 ref='input'
+                underlineColorAndroid="transparent"
                 style={[styles.valueText]}
                 defaultValue={this.props.defaultValue}
                 value={this.state.text}
@@ -198,8 +200,8 @@ const styles = StyleSheet.create({
     left: 0
   },
   fieldLabel: {
-    height: 10,
-    fontSize: 9,
+    height: 15,
+    fontSize: 10,
     color: '#B1B1B1'
   },
   fieldContainer: {
@@ -212,8 +214,8 @@ const styles = StyleSheet.create({
     borderColor: '#C8C7CC',
   },
   valueText: {
-    height: 20,
-    fontSize: 16,
+    height: (Platform.OS == 'ios' ? 20 : 35),
+    fontSize: (Platform.OS == 'ios' ? 16 : 14),
     color: '#111111'
   },
   focused: {
