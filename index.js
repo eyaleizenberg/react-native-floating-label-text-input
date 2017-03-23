@@ -214,8 +214,8 @@ const styles = StyleSheet.create({
     borderColor: '#C8C7CC',
   },
   valueText: {
-    height: (Platform.OS == 'ios' ? 20 : 35),
-    fontSize: (Platform.OS == 'ios' ? 16 : 14),
+    height: (Platform.OS == 'ios' ? 20 : 60),
+    fontSize: 16,
     color: '#111111'
   },
   focused: {
