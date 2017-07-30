@@ -86,6 +86,10 @@ class FloatLabelTextField extends Component {
     }
   }
 
+  leftPadding() {
+    return { width: this.props.leftPadding || 0 }
+  }
+
   withBorder() {
     if (!this.props.noBorder) {
       return styles.withBorder;
@@ -96,7 +100,7 @@ class FloatLabelTextField extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.viewContainer}>
-          <View style={styles.paddingView} />
+          <View style={[styles.paddingView, this.leftPadding()]} />
           <View style={[styles.fieldContainer, this.withBorder()]}>
             <FloatingLabel visible={this.state.text}>
               <Text style={[styles.fieldLabel, this.labelStyle()]}>{this.placeholderValue()}</Text>
